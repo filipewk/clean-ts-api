@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:staged": "jest"
   },
   "lint-staged": {
     "*.ts": [
-      "eslint 'src/**' --fix"
+      "eslint 'src/**' --fix",
+      "npm run test:staged"
     ]
   },
   "husky": {
