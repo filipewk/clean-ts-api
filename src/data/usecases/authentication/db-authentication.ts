@@ -3,6 +3,7 @@ import { LoadAccountByEmailRepository } from '../../protocols/db/load-account-by
 
 export class DbAuthentication implements Authentication {
   private readonly loadAccountByEmailRepository: LoadAccountByEmailRepository
+
   constructor (loadAccountByEmailRepository: LoadAccountByEmailRepository) {
     this.loadAccountByEmailRepository = loadAccountByEmailRepository
   }
