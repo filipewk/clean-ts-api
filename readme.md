@@ -1,4 +1,5 @@
 ﻿[![Build Status](https://travis-ci.org/filipewk/clean-ts-api.svg?branch=master)](https://travis-ci.org/filipewk/clean-ts-api)
+[![Coverage Status](https://coveralls.io/repos/github/filipewk/clean-ts-api/badge.svg)](https://coveralls.io/github/filipewk/clean-ts-api)
 
 # **Clean Node API**
 
