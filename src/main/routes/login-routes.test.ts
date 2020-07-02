@@ -20,9 +20,6 @@ describe('Login Routes', () => {
 
   describe('POST /signup', () => {
     test('Should return 200 on signup', async () => {
-      app.post('/api/signup', (req, res) => {
-        res.send()
-      })
       await request(app)
         .post('/api/signup')
         .send({
@@ -39,6 +36,7 @@ describe('Login Routes', () => {
     test('Should return 200 on login', async () => {
       const password = await hash('123456', 12)
       await accountCollection.insertOne({
+        name: 'Filipe',
         email: 'filipewk@gmail.com',
         password
       })
