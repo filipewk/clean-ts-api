@@ -42,7 +42,7 @@ describe('SurveyMongo Repository', () => {
   })
 
   describe('loadAll()', () => {
-    test('Should loadAll surveys on success', async () => {
+    test('Should load all surveys on success', async () => {
       await surveyCollection.insertMany([{
         question: 'any_question',
         answers: [{
@@ -60,8 +60,15 @@ describe('SurveyMongo Repository', () => {
       }])
       const sut = makeSut()
       const surveys = await sut.loadAll()
+      expect(surveys.length).toBe(2)
       expect(surveys[0].question).toBe('any_question')
       expect(surveys[1].question).toBe('other_question')
+    })
+
+    test('Should load empty list', async () => {
+      const sut = makeSut()
+      const surveys = await sut.loadAll()
+      expect(surveys.length).toBe(0)
     })
   })
 })
