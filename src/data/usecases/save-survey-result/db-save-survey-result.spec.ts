@@ -56,8 +56,15 @@ describe('DbAddSurvey UseCase', () => {
   test('Should throw if SaveSurveyResultRepository throws', async () => {
     const { sut, saveSurveyResultRepositoryStub } = makeSut()
     jest.spyOn(saveSurveyResultRepositoryStub, 'save').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
-    const surveyData = makeFakeSurveyResultData()
-    const promise = sut.save(surveyData)
+    const surveyResultData = makeFakeSurveyResultData()
+    const promise = sut.save(surveyResultData)
     await expect(promise).rejects.toThrow()
+  })
+
+  test('Should return SurveyResult on success', async () => {
+    const { sut } = makeSut()
+    const surveyResultData = makeFakeSurveyResultData()
+    const surveyResult = await sut.save(surveyResultData)
+    expect(surveyResult).toEqual(makeFakeSurveyResult())
   })
 })
