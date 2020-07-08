@@ -31,6 +31,7 @@ describe('Survey Routes', () => {
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_URL)
   })
+
   afterAll(async () => {
     await MongoHelper.disconnect()
   })
@@ -48,14 +49,12 @@ describe('Survey Routes', () => {
         .post('/api/surveys')
         .send({
           question: 'Question',
-          answers: [
-            {
-              answer: 'Answer 1',
-              image: 'http://image-name.com'
-            }, {
-              answer: 'Answer 2'
-            }
-          ]
+          answers: [{
+            answer: 'Answer 1',
+            image: 'http://image-name.com'
+          }, {
+            answer: 'Answer 2'
+          }]
         })
         .expect(403)
     })
