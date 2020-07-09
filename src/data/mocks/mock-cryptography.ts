@@ -24,7 +24,7 @@ export const mockDecrypter = (): Decrypter => {
 export const mockEncrypter = (): Encrypter => {
   class EncrypterStub implements Encrypter {
     async encrypt (value: string): Promise<string> {
-      return new Promise(resolve => resolve('any_token'))
+      return 'any_token'
     }
   }
   return new EncrypterStub()
@@ -33,7 +33,7 @@ export const mockEncrypter = (): Encrypter => {
 export const mockHashComparer = (): HashComparer => {
   class HashComparerStub implements HashComparer {
     async compare (value: string, hash: string): Promise<boolean> {
-      return new Promise(resolve => resolve(true))
+      return true
     }
   }
   return new HashComparerStub()
