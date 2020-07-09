@@ -1,22 +1,17 @@
 import {
-  AccountModel,
   LoadAccountByEmailRepository,
   UpdateAccessTokenRepository,
   HashComparer,
   Encrypter
 } from './db-authentication-protocols'
+import {
+  mockHashComparer,
+  mockEncrypter,
+  mockUpdateAccessTokenRepository,
+  mockLoadAccountByEmailRepository
+} from '@/data/mocks'
 import { DbAuthentication } from './db-authentication'
-import { mockHashComparer, mockEncrypter, mockUpdateAccessTokenRepository } from '@/data/mocks'
-import { mockAccountModel, mockAuthentication } from '@/domain/mocks'
-
-const mockLoadAccountByEmailRepository = (): LoadAccountByEmailRepository => {
-  class LoadAccountByEmailRepositoryStub implements LoadAccountByEmailRepository {
-    async loadByEmail (email: string): Promise<AccountModel> {
-      return mockAccountModel()
-    }
-  }
-  return new LoadAccountByEmailRepositoryStub()
-}
+import { mockAuthentication } from '@/domain/mocks'
 
 type SutTypes = {
   sut: DbAuthentication
