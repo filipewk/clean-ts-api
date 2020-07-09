@@ -4,6 +4,7 @@ import setupSwagger from './config-swagger'
 import express from 'express'
 
 const app = express()
+app.disable('x-powered-by')
 setupSwagger(app)
 setupMiddlewares(app)
 setupeRoutes(app)
