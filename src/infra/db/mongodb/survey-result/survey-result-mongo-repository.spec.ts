@@ -100,7 +100,7 @@ describe('SurveyMongo Repository', () => {
   })
 
   describe('loadBySurveyId()', () => {
-    test('Should load survey result if its not new', async () => {
+    test('Should load survey result', async () => {
       const survey = await makeSurvey()
       const account = await makeAccout()
       await surveyResultCollection.insertMany([{
