@@ -60,7 +60,7 @@ describe('SignUp Controller', () => {
     const { sut } = makeSut()
     const httpRequest = mockRequest()
     const httpResponse = await sut.handle(httpRequest)
-    expect(httpResponse).toEqual(ok({ accessToken: 'any_token' }))
+    expect(httpResponse).toEqual(ok({ accessToken: 'any_token', name: 'any_name' }))
   })
 
   test('Should return 500 if AddAccount throws', async () => {
